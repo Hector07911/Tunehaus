@@ -3,6 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-cormorant: var(--font-cormorant);
+  --font-jetbrains: var(--font-jetbrains);
+  --brand-orange: #ff6400;
+  --brand-gris: #B9B8B8;
 }
 
 @theme inline {
@@ -23,4 +27,339 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Brand styles */
+.brand-tune {
+  color: var(--brand-orange);
+  font-family: var(--font-cormorant), serif;
+}
+
+.brand-haus {
+  color: #ffffff;
+  font-family: var(--font-cormorant), serif;
+}
+
+.nav-li {
+  font-family: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-li:hover {
+  color: var(--brand-orange);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* Title size 35px exact utility */
+.title-35 {
+  font-size: 32px;
+  line-height: 1;
+
+}
+
+/* Fullscreen hero using /hero.gif from public/ */
+.hero-fullscreen {
+  width: 100%;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 64px);
+  /* subtract navbar height approx */
+  overflow: hidden;
+  background-color: #000;
+  background-image: url('/video2.gif');
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Fixed header (navbar) */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 64px;
+}
+
+/* push hero below fixed header */
+.hero-offset {
+  margin-top: 64px;
+}
+
+/* Video background element fills the hero container */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay to help text contrast */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 40%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Left-aligned content container */
+.hero-content {
+  position: relative;
+  /* above video and overlay */
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 6rem;
+}
+
+.hero-text {
+  color: white;
+  max-width: 640px;
+}
+
+.hero-title {
+  font-family: var(--font-cormorant), serif;
+  font-size: 120px;
+  line-height: 0.9;
+  margin: 0 0 0.25rem 0;
+}
+
+.hero-sub {
+  font-family: var(--font-jetbrains), monospace;
+  color: var(--brand-gris);
+  letter-spacing: 2px;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+}
+
+.seg-tittle {
+  font-family: var(--font-jetbrains), monospace;
+  color: var(--brand-orange);
+  font-size: 19px;
+  line-height: 1.1;
+  display: flex;
+}
+
+/* Model showcase section */
+.model-section {
+  position: relative;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 4rem 0 6rem 0;
+}
+
+.model-content {
+  position: relative;
+}
+
+.model-bg-text {
+  font-family: var(--font-cormorant), serif;
+  font-size: 180px;
+  line-height: 0.9;
+  color: rgba(255, 255, 255, 0.08);
+  text-transform: uppercase;
+  letter-spacing: -8px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.model-image {
+  position: relative;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: -6rem auto 0 auto;
+  /* pull image up over text */
+  z-index: 2;
+  filter: brightness(1.1) contrast(1.05);
+}
+
+.model-caption {
+  text-align: center;
+  font-family: var(--font-jetbrains), monospace;
+  color: var(--brand-gris);
+  margin-top: 3rem;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+
+/* If hero.gif is not present, the background will be black; add your gif to public/hero.gif */
+
+/* ── Slide container ── */
+.slide-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.slide {
+  background: #0b0b0b;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Tag superior izquierdo ── */
+.tag {
+  font-family: var(--font-space-mono), monospace;
+  color: var(--brand-orange);
+  font-size: clamp(11px, 1.5vw, 15px);
+  letter-spacing: 0.12em;
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  z-index: 10;
+}
+
+/* ── Bloque de título (BMW — E30) ── */
+.title-block {
+  position: absolute;
+  top: 22%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 10%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.title-left,
+.title-right {
+  font-family: var(--font-bebas), sans-serif;
+  font-size: clamp(70px, 18vw, 180px);
+  color: #ffffff;
+  line-height: 0.8;
+  letter-spacing: 0px;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+/* ── Capa del auto (SVG) ── */
+.car-layer {
+  position: absolute;
+  top: 10%;
+  left: -2%;
+  right: -2%;
+  bottom: 15%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-layer svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.9));
+}
+
+/* ── Línea de acento morada ── */
+.accent-line {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      #7c3aed 30%,
+      #7c3aed 70%,
+      transparent);
+  opacity: 0.25;
+  z-index: 1;
+}
+
+/* ── Subtítulo inferior ── */
+.subtitle-block {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.subtitle-block p {
+  font-family: var(--font-space-mono), monospace;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(12px, 1.8vw, 18px);
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+
+/* ── Dots de navegación ── */
+.dots {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #ffffff;
+}
+
+/* ── Flechas de navegación ── */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5%;
+  z-index: 20;
+}
+
+.arr {
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.arr:hover {
+  background: rgba(255, 255, 255, 0.14);
 }
