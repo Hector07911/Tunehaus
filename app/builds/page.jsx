@@ -227,9 +227,6 @@ export default function BuildsHeader() {
         <CarGallery marcaActiva={marcaActiva} filtroActivo={filtroActivo} />
       </div>
 
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow+Condensed:wght@400;600&display=swap');
-      `}</style>
     </div>
   );
 }

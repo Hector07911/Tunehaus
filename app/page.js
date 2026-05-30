@@ -43,9 +43,9 @@ export default function Home() {
           cuando la ingeniería se convierte en <span className="text-white font-normal">arte.</span>
         </p>
         
-        <button className="nav-li border border-[var(--brand-orange)] text-[var(--brand-orange)] bg-transparent py-4 px-8 tracking-widest text-sm transition-colors hover:bg-[var(--brand-orange)] hover:text-black uppercase flex items-center gap-4 cursor-pointer">
+        <Link href="/builds" className="border border-[var(--brand-orange)] text-[var(--brand-orange)] bg-transparent py-4 px-8 tracking-widest text-sm transition-all duration-300 hover:bg-[var(--brand-orange)] hover:text-black uppercase inline-flex items-center gap-4 cursor-pointer">
           VER TODOS LOS BUILDS <span className="text-lg">&rarr;</span>
-        </button>
+        </Link>
       </section>
 
       {/* Final Image Section */}

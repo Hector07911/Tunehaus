@@ -1,14 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import rx7Img from "../Mazda.Rx7/Img1.png";
 
 const CAR_DATA = [
   { id: "bmw-e30", marca: "bmw", modelo: "E30", stage: "STAGE 2", img: "/e30.png" },
-  { id: "bmw-m4 competition", marca: "bmw", modelo: "M4", stage: "COMPETITION", img: "/bmwM4.png" },
+  { id: "bmw-m4", marca: "bmw", modelo: "M4", stage: "COMPETITION", img: "/bmwM4.png" },
   { id: "nissan-gtr", marca: "nissan", modelo: "R35", stage: "STAGE 3", img: "/gtr.png" },
   { id: "nissan-370z", marca: "nissan", modelo: "370Z", stage: "STAGE 1", img: "/nissan370.png" },
   { id: "honda-nsx", marca: "honda", modelo: "NSX", stage: "STAGE 4", img: "/nsx.png" },
-  { id: "mazda-rx7", marca: "mazda", modelo: "RX7", stage: "STAGE 3", img: rx7Img },
+  { id: "mazda-rx7", marca: "mazda", modelo: "RX7", stage: "STAGE 3", img: "/builds/mazda-rx7/main.png" },
 ];
 
 export default function CarGallery({ marcaActiva, filtroActivo }) {
@@ -44,9 +43,10 @@ export default function CarGallery({ marcaActiva, filtroActivo }) {
 
                 <Image
                   src={car.img}
-                  alt={car.modelo}
+                  alt={`${car.marca} ${car.modelo}`}
                   width={800}
                   height={500}
+                  sizes="(max-width: 768px) 100vw, 60vw"
                   className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] group-hover:scale-105 group-hover:-translate-y-4 transition-all duration-700 ease-out"
                 />
               </div>
