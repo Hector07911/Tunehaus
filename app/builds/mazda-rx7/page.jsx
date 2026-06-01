@@ -1,185 +1,69 @@
-import Image from "next/image";
-import Link from "next/link";
+import BuildPage from "../components/BuildPage";
+
+const config = {
+  marca: "MAZDA",
+  modelo: "RX7",
+  accentColor: "#ff6400",
+
+  heroImage: "/builds/mazda-rx7/main.png",
+
+  heroStats: [
+    { valor: "450", label: "WHP" },
+    { valor: "4.2s", label: "0-100" },
+    { valor: "280", label: "KM/H" },
+    { valor: "13B-REW", label: "ROTARY" },
+  ],
+
+  sections: [
+    {
+      tag: "// 01 LEYENDA DE TOKYO DRIFT",
+      title: "Kit VeilSide Fortune",
+      body: "Inmortalizado en el cine como el legendario auto de Han en Rápidos y Furiosos. Este kit de carrocería ensancha el chasis en casi 30 centímetros, incorporando paneles aerodinámicos curvos y ópticas Fortune específicas que cambiaron la cultura JDM para siempre.",
+      stats: [
+        { label: "Cultura", value: "Han's Hero Car" },
+        { label: "Diseño", value: "VeilSide Fortune" },
+      ],
+      image: "/builds/mazda-rx7/gallery-2.jpg",
+      imageAlt: "Frente RX7",
+      imageStyle: "photo",
+      reverse: false,
+    },
+    {
+      tag: "// 02 EL ESPÍRITU ROTATIVO",
+      title: "13B-REW Turbo",
+      body: "Un bloque legendario modificado con un turbo single Garrett masivo que reemplaza el sistema secuencial de fábrica. Este 13B-REW alcanza las 9,000 RPM produciendo 450 caballos de fuerza a las ruedas con una sinfonía metálica inconfundible.",
+      stats: [
+        { label: "Aspiración", value: "Single Turbo Garrett" },
+        { label: "Escape", value: "Full Titanium System" },
+      ],
+      image: "/builds/mazda-rx7/gallery-3.jpg",
+      imageAlt: "Motor RX7",
+      imageStyle: "photo",
+      reverse: true,
+    },
+    {
+      tag: "// 03 PRECISIÓN JAPONESA",
+      title: "Estilo y Control",
+      body: "Un chasis ensanchado que requiere un ajuste milimétrico de la geometría. Equipado con coilovers de alto rendimiento y rines VeilSide Andrew de gran anchura y labio profundo pulido, este conjunto transfiere la potencia del motor rotativo directamente al suelo con una postura imponente en las calles.",
+      stats: [
+        { label: "Suspensión", value: "VeilSide Andrew / Deep Dish" },
+        { label: "Carrocería", value: "Ensanchado Esculpido" },
+      ],
+      image: "/builds/mazda-rx7/gallery-4.jpg",
+      imageAlt: "Detalle RX7",
+      imageStyle: "photo",
+      reverse: false,
+    },
+  ],
+
+  sponsors: ["RAYS", "Bride", "TEIN", "GReddy"],
+};
+
+export const metadata = {
+  title: "Mazda RX7 | TuneHaus Builds",
+  description: "Especificaciones completas del build Mazda RX7 de TuneHaus. Leyenda de Tokyo Drift con Kit VeilSide Fortune.",
+};
 
 export default function MazdaRX7Specs() {
-  const images = [
-    "/builds/mazda-rx7/main.png",
-    "/builds/mazda-rx7/gallery-2.jpg",
-    "/builds/mazda-rx7/gallery-3.jpg",
-    "/builds/mazda-rx7/gallery-4.jpg"
-  ];
-
-  return (
-    <div className="w-full bg-[#0a0a0a] text-white font-sans relative overflow-x-hidden">
-
-      {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-gradient-to-b from-[#222] to-transparent opacity-20 pointer-events-none z-0"></div>
-
-      {/* 1. HERO SECTION */}
-      <div className="relative w-full min-h-[80vh] flex flex-col items-center justify-end max-w-7xl mx-auto">
-
-        {/* Botón de volver - debajo del navbar (64px + 16px margen) */}
-        <div className="absolute top-[80px] left-8 md:left-12 z-20">
-          <Link href="/builds" className="inline-flex items-center text-[#888] font-bold uppercase tracking-[0.2em] text-xs hover:text-[#ff6400] transition-colors duration-300">
-            <span className="mr-2">&larr;</span> VOLVER A BUILDS
-          </Link>
-        </div>
-
-        {/* Texto de marca - debajo del botón */}
-        <div className="absolute top-[108px] left-8 md:left-12 z-10">
-          <p className="text-[#555] tracking-[0.5em] font-light text-sm">MAZDA RX7</p>
-        </div>
-
-        {/* GIANT RX7 TEXT IN BACKGROUND */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 flex items-center justify-center opacity-[0.03] pointer-events-none z-0 w-full overflow-hidden">
-          <span className="text-[25rem] md:text-[40rem] font-black text-white whitespace-nowrap leading-none tracking-tighter select-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            RX7
-          </span>
-        </div>
-
-        {/* Hero Specs Overlay */}
-        <div className="absolute top-1/3 right-8 md:right-12 z-20 text-right hidden md:block">
-          <ul className="text-[#888] text-sm tracking-[0.2em] font-light space-y-4">
-            <li>450 <span className="text-white font-bold">WHP</span></li>
-            <li>4.2s <span className="text-white font-bold">0-100</span></li>
-            <li>280 <span className="text-white font-bold">KM/H</span></li>
-            <li>13B-REW <span className="text-white font-bold">ROTARY</span></li>
-          </ul>
-        </div>
-
-        {/* Main Car Image */}
-        <div className="relative w-full h-[400px] md:h-[600px] z-10 w-full flex justify-center items-end">
-          {/* Subtle glow since it's likely a cutout png */}
-          <div className="absolute inset-x-0 bottom-10 h-1/2 bg-white opacity-[0.02] blur-[120px] rounded-full pointer-events-none"></div>
-          <Image
-            src={images[0]}
-            alt="Mazda RX7 Hero"
-            fill
-            className="object-contain drop-shadow-[0_40px_40px_rgba(0,0,0,0.9)] pb-10"
-            priority
-          />
-        </div>
-      </div>
-
-      {/* CONTENIDO DESLIZABLE HACIA ABAJO */}
-      <div className="w-full bg-[#0a0a0a] relative z-20">
-
-        {/* 2. SECCIÓN FRENTE (Image 2) */}
-        <div className="w-full max-w-7xl mx-auto px-4 py-24 md:py-32 border-t border-[#1a1a1a] flex flex-col md:flex-row items-center gap-12">
-          {/* Imagen a la izquierda */}
-          <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px] overflow-hidden border border-[#222]">
-            <div className="absolute inset-0 bg-black/20 hover:bg-transparent transition-colors duration-500 z-10"></div>
-            <Image
-              src={images[1]}
-              alt="Frente RX7"
-              fill
-              className="object-cover scale-105 hover:scale-100 transition-transform duration-700 ease-out z-0"
-            />
-          </div>
-          {/* Texto a la derecha */}
-          <div className="w-full md:w-1/2 flex flex-col justify-center px-4 md:px-12">
-            <span className="text-[#ff6400] font-mono tracking-widest text-sm mb-4 block">// 01 DISEÑO FRONTAL</span>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 text-white">
-              Kit RE-Amemiya
-            </h2>
-            <p className="text-[#888] leading-relaxed font-light text-lg mb-8">
-              La aerodinámica de este RX7 ha sido perfeccionada e inspirada en los autos de Super GT japonés. Incorpora el legendario kit de carrocería RE-Amemiya que no solo ensancha su postura, sino que mejora dramáticamente el flujo de aire hacia los intercoolers.
-            </p>
-            <div className="grid grid-cols-2 gap-4 border-t border-[#222] pt-6">
-              <div>
-                <span className="block text-xs text-[#555] uppercase tracking-widest mb-1">Aero</span>
-                <span className="font-bold">Front Lip Carbono</span>
-              </div>
-              <div>
-                <span className="block text-xs text-[#555] uppercase tracking-widest mb-1">Luces</span>
-                <span className="font-bold">Sleek Headlights</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 3. SECCIÓN MOTOR (Image 3) */}
-        <div className="w-full bg-[#111] border-y border-[#222]">
-          <div className="w-full max-w-7xl mx-auto px-4 py-24 md:py-32 flex flex-col md:flex-row-reverse items-center gap-12">
-            {/* Imagen a la derecha */}
-            <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px] overflow-hidden border border-[#333]">
-              <div className="absolute inset-0 bg-black/20 hover:bg-transparent transition-colors duration-500 z-10"></div>
-              <Image
-                src={images[2]}
-                alt="Motor RX7"
-                fill
-                className="object-cover scale-105 hover:scale-100 transition-transform duration-700 ease-out z-0"
-              />
-            </div>
-            {/* Texto a la izquierda */}
-            <div className="w-full md:w-1/2 flex flex-col justify-center px-4 md:px-12">
-              <span className="text-[#ff6400] font-mono tracking-widest text-sm mb-4 block">// 02 EL ESPÍRITU ROTATIVO</span>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 text-white">
-                13B-REW Turbo
-              </h2>
-              <p className="text-[#888] leading-relaxed font-light text-lg mb-8">
-                Un bloque legendario modificado con un turbo single Garrett masivo que reemplaza el sistema secuencial de fábrica. Este 13B-REW alcanza las 9,000 RPM produciendo 450 caballos de fuerza a las ruedas con una sinfonía metálica inconfundible.
-              </p>
-              <div className="grid grid-cols-2 gap-4 border-t border-[#333] pt-6">
-                <div>
-                  <span className="block text-xs text-[#555] uppercase tracking-widest mb-1">Aspiración</span>
-                  <span className="font-bold">Single Turbo Garrett</span>
-                </div>
-                <div>
-                  <span className="block text-xs text-[#555] uppercase tracking-widest mb-1">Escape</span>
-                  <span className="font-bold">Full Titanium System</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 4. SECCIÓN DETALLE (Image 4) */}
-        <div className="w-full max-w-7xl mx-auto px-4 py-24 md:py-32 flex flex-col md:flex-row items-center gap-12">
-          {/* Imagen a la izquierda */}
-          <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px] overflow-hidden border border-[#222]">
-            <div className="absolute inset-0 bg-black/20 hover:bg-transparent transition-colors duration-500 z-10"></div>
-            <Image
-              src={images[3]}
-              alt="Detalle RX7"
-              fill
-              className="object-cover scale-105 hover:scale-100 transition-transform duration-700 ease-out z-0"
-            />
-          </div>
-          {/* Texto a la derecha */}
-          <div className="w-full md:w-1/2 flex flex-col justify-center px-4 md:px-12">
-            <span className="text-[#ff6400] font-mono tracking-widest text-sm mb-4 block">// 03 PRECISIÓN JAPONESA</span>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 text-white">
-              Time Attack
-            </h2>
-            <p className="text-[#888] leading-relaxed font-light text-lg mb-8">
-              Un chasis que destaca por su increíble balance (50/50). Equipado con suspensión Tein Flex Z, frenos Brembo y rines RAYS envueltos en neumáticos semi-slicks, este auto ha sido afinado milimétricamente para atacar las curvas en los circuitos más exigentes.
-            </p>
-            <div className="grid grid-cols-2 gap-4 border-t border-[#222] pt-6">
-              <div>
-                <span className="block text-xs text-[#555] uppercase tracking-widest mb-1">Suspensión</span>
-                <span className="font-bold">Tein Flex Z</span>
-              </div>
-              <div>
-                <span className="block text-xs text-[#555] uppercase tracking-widest mb-1">Frenos</span>
-                <span className="font-bold">Brembo GT</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Brand Logos Footer */}
-        <div className="w-full border-t border-[#222] py-16 mt-8">
-          <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center md:justify-between items-center gap-12 opacity-40 hover:opacity-100 transition-opacity duration-500 text-white">
-            <span className="text-3xl font-black italic tracking-tighter">RAYS</span>
-            <span className="text-3xl font-bold uppercase tracking-widest">Bride</span>
-            <span className="text-4xl font-black tracking-tighter" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>TEIN</span>
-            <span className="text-3xl font-bold tracking-widest font-serif italic">GReddy</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  );
+  return <BuildPage config={config} />;
 }
-

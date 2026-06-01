@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const CAR_DATA = [
   { id: "bmw-e30", marca: "bmw", modelo: "E30", stage: "STAGE 2", img: "/e30.png" },
-  { id: "bmw-m4", marca: "bmw", modelo: "M4", stage: "COMPETITION", img: "/bmwM4.png" },
+  { id: "bmw-m4", marca: "bmw", modelo: "M4", stage: "STAGE 4", img: "/bmwM4.png" },
   { id: "nissan-gtr", marca: "nissan", modelo: "R35", stage: "STAGE 3", img: "/gtr.png" },
   { id: "nissan-370z", marca: "nissan", modelo: "370Z", stage: "STAGE 1", img: "/nissan370.png" },
   { id: "honda-nsx", marca: "honda", modelo: "NSX", stage: "STAGE 4", img: "/nsx.png" },
