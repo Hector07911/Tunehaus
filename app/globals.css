@@ -61,6 +61,12 @@ body {
 
 }
 
+@media (max-width: 768px) {
+  .title-35 {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+}
+
 /* Fullscreen hero using /hero.gif from public/ */
 .hero-fullscreen {
   width: 100%;
@@ -75,6 +81,12 @@ body {
   background-position: center center;
 }
 
+@media (max-width: 768px) {
+  .hero-fullscreen {
+    height: calc(100vh - 56px);
+  }
+}
+
 /* Fixed header (navbar) */
 .site-header {
   position: fixed;
@@ -85,9 +97,21 @@ body {
   height: 64px;
 }
 
+@media (max-width: 768px) {
+  .site-header {
+    height: 56px;
+  }
+}
+
 /* push hero below fixed header */
 .hero-offset {
   margin-top: 64px;
+}
+
+@media (max-width: 768px) {
+  .hero-offset {
+    margin-top: 56px;
+  }
 }
 
 /* Video background element fills the hero container */
@@ -110,38 +134,71 @@ body {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 40%, rgba(0, 0, 0, 0) 100%);
 }
 
+@media (max-width: 768px) {
+  .hero-overlay {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%);
+  }
+}
+
 /* Left-aligned content container */
 .hero-content {
   position: relative;
-  /* above video and overlay */
   z-index: 2;
   display: flex;
   align-items: center;
   height: 100%;
-  padding-left: 6rem;
+  padding-left: 8rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+  }
 }
 
 .hero-text {
   color: white;
-  max-width: 640px;
+  max-width: 700px;
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    max-width: 100%;
+  }
 }
 
 .hero-title {
   font-family: var(--font-cormorant), serif;
-  font-size: 120px;
-  line-height: 0.9;
-  margin: 0 0 0.25rem 0;
+  font-size: 140px;
+  line-height: 0.85;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -2px;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(48px, 12vw, 80px);
+  }
 }
 
 .hero-sub {
   font-family: var(--font-jetbrains), monospace;
   color: var(--brand-gris);
-  letter-spacing: 2px;
-  font-size: 14px;
+  letter-spacing: 3px;
+  font-size: 15px;
   display: block;
   width: 100%;
   text-align: left;
-  margin: 0;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .hero-sub {
+    font-size: clamp(10px, 2.5vw, 12px);
+    letter-spacing: 1px;
+  }
 }
 
 .seg-tittle {

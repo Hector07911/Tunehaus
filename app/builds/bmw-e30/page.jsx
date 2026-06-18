@@ -31,7 +31,7 @@ const config = {
         { label: "Chasis Base", value: "E24 635 CSi" },
         { label: "Carrocería", value: "Custom Group 5 Silhouette" },
       ],
-      image: "/builds/bmw-e30/2.jpg",
+      image: "/builds/bmw-e30/3.jpg",
       imageAlt: "BMW E24 Sharknose Exterior",
       imageStyle: "photo",
       reverse: false,
